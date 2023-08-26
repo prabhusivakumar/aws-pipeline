@@ -22,11 +22,12 @@ The deployment can be verified by issuing a web request to http://{ip}:8080/succ
 ## Solution
 1. The solution is achieved using Elastic Beanstalk in AWS.
 2. Assume that the Jenkins server has Elastic Beanstalk CLI installed.
-3. The application artifact is pushed to Dockerhub by building the image using "Dockerfileapp" and then pushing it to prabhusiva619/aws-pipeline repo.
-4. A connection between Jenkins and Dockerhub is established through webhook, which in turn will trigger the Jenkins pipeline.
-5. In our case the pipeline is parameterized as we could only simulate artifact generation, so the version of the artifact is sent as parameter to Jenkins.
-6. Jenkins then builds another Dockerfile using the passed parameter.
-7. Finally the 'eb deploy' command is used to deploy the new artifact to Elastic Beanstalk.
+3. Assume that the Elastic Beanstalk application is initialized using 'eb init' command with Docker as base platform.
+4. The application artifact is pushed to Dockerhub by building the image using "Dockerfileapp" and then pushing it to prabhusiva619/aws-pipeline repo.
+5. A connection between Jenkins and Dockerhub is established through webhook, which in turn will trigger the Jenkins pipeline.
+6. In our case the pipeline is parameterized as we could only simulate artifact generation, so the version of the artifact is sent as parameter to Jenkins.
+7. Jenkins then builds another Dockerfile using the passed parameter.
+8. Finally the 'eb deploy' command is used to deploy the new artifact to Elastic Beanstalk.
 
 Problem 2
 ================
