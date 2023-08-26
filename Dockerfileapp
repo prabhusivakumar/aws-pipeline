@@ -1,0 +1,7 @@
+FROM alpine:latest
+
+COPY bin/eVision* go-app
+
+RUN chmod +x go-app
+
+EXPOSE 8080
