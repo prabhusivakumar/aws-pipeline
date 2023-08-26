@@ -39,3 +39,11 @@ application and take into consideration that downtime should be minimized.
 2. The application is configured for rolling update with 50% capacity.
 3. When the latest version of the artifact is available, Jenkins will build and deploy the latest version in a Dockerfile and run the 'eb deploy' command.
 4. Elastic Beanstalk then pushes the latest code to server 1 while server 2 still holds the previous version. Once server 1 is ready, the latest code is pushed to server 2.
+
+____
+
+The ideal solution
+================
+1. The above solution works well in a cloud native setup.
+2. However, in an ideal production scenario, a solution involving a Kubernetes cluster which is updated using Helm would be the best way to go.
+3. I have implemented it using Elastic Beanstalk only because the requirements asked for deployment in AWS/Azure, with zero downtime capabilities.
